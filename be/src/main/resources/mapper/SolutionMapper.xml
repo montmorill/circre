@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.circre.be.mapper.SolutionsMapper">
+
+    <resultMap id="BaseResultMap" type="com.circre.be.entity.Solutions">
+        <result column="session_id" property="sessionId" jdbcType="BIGINT"/>
+        <result column="material_id" property="materialId" jdbcType="INTEGER"/>
+        <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 插入解决方案记录 -->
+    <insert id="insert" parameterType="com.circre.be.entity.Solutions">
+        INSERT INTO solutions
+        (session_id, material_id, created_at)
+        VALUES
+        (#{sessionId}, #{materialId}, #{createdAt})
+    </insert>
+
+    <!-- 根据sessionId查询materialId列表 -->
+    <select id="getMaterialIdsBySessionId" resultType="java.lang.Integer">
+        SELECT material_id
+        FROM solutions
+        WHERE session_id = #{sessionId}
+    </select>
+
+</mapper>
