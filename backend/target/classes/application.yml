@@ -5,8 +5,8 @@ spring:
     allow-bean-definition-overriding: true
   datasource:
     url: jdbc:mysql://localhost:3306/circre_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: root
-    password: 20041030Xu.
+    username:
+    password: .
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
@@ -20,7 +20,7 @@ mybatis:
 file:
   upload:
     address: ${user.dir}/file_address
-
+#感谢哈！这里apiKey是我在阿里云申请的，需要自己申请
 langchain4j:
   community:
     dashscope:
