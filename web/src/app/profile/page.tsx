@@ -38,28 +38,26 @@ export default function Profile() {
                         <div className="bg-[#e3dbca] rounded-full p-4 aspect-square">
                             <Image src={`/circre/${avatar}.svg`} alt="Profile" width={200} height={200} className="relative top-7" />
                         </div>
-                        <CirclePlus className="float relative bottom-12 left-22 opacity-50" width={36} height={36} />
-                        <div className="w-48 text-center mt-[-1.5rem] text-[#3D3935] bg-white px-3 py-2 rounded-full">{name}</div>
+                        <div className="w-48 text-center mt-4 text-[#3D3935] bg-white px-3 py-2 rounded-full">{name}</div>
+                        <CirclePlus className="float relative bottom-26 left-22 opacity-50" width={36} height={36} />
                     </div>
-                    <div className="flex flex-col items-center gap-4 mt-6 *:w-[70vw]">
-                        <div className="flex gap-8">
-                            <div className="flex-1"></div>
-                            <div className="flex-1 ml-8 font-medium text-2xl text-[#3D3935]">About me</div>
-                        </div>
-                        <div className="mt-[-.25rem] flex items-stretch text-[#5E5652] gap-8">
-                            <div className="flex-1">
-                                <div className="bg-[#fffc] flex flex-col p-8 gap-12 rounded-4xl">
-                                    <label>Location:&nbsp;<input type="text" /></label>
-                                    <label>Nation:&nbsp;<input type="text" /></label>
-                                    <label>Company:&nbsp;<input type="text" /></label>
-                                    <label>Job:&nbsp;<input type="text" /></label>
-                                    <label>Education:&nbsp;<input type="text" /></label>
-                                    <label>Contact:&nbsp;<input type="text" /></label>
+                    <div className="flex flex-col items-center gap-4 *:w-[70vw]">
+                        <div className="flex h-[30em] text-[#5E5652] gap-8 *:basis-0">
+                            <div className="flex-1 h-full flex flex-col gap-4">
+                                <div className="ml-4 font-medium text-2xl text-[#3D3935]">&nbsp;</div>
+                                <div className="flex-1 bg-[#fffc] flex flex-col p-8 justify-between rounded-4xl text-lg">
+                                    <label>Location:<input type="text" /></label>
+                                    <label>Nation:<input type="text" /></label>
+                                    <label>Company:<input type="text" /></label>
+                                    <label>Job:<input type="text" /></label>
+                                    <label>Education<input type="text" /></label>
+                                    <label>Contact:<input type="text" /></label>
                                 </div>
                             </div>
-                            <div className="flex-1 flex flex-col gap-4">
-                                <Textarea className="bg-[#fffc] flex-2 flex flex-col p-6 rounded-4xl" />
-                                <div className="ml-4 font-medium text-2xl text-[#3D3935]">Choose your Circre</div>
+                            <div className="flex-1 w-[calc(50%-2rem)] h-full flex flex-col gap-4">
+                                <div className="ml-4 font-medium text-2xl text-[#3D3935]">About Me</div>
+                                <Textarea className="flex-1 flex flex-col bg-[#fffc] p-6 rounded-4xl" wrap="off" />
+                                <div className="ml-4 font-medium text-2xl text-[#3D3935]">Choose your CirCre</div>
                                 <div className="bg-[#604B4080] flex justify-between p-6 pt-8 rounded-4xl">
                                     {CIRCRES.map((circre) =>
                                         <Image
