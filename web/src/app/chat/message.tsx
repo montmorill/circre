@@ -14,7 +14,7 @@ export default function Message({ role, content }: MessageProps) {
                 <Image className="border rounded-full h-8 w-8 p-0.5 mr-2" src="/blackshell.svg" alt="circle" width={24} height={24} />
             }
             <div className={cn(role === "user"
-                ? "max-w-[55%] py-2 px-4 rounded-2xl bg-[#efefef]"
+                ? "max-w-[55%] py-2 px-4.5 rounded-3xl bg-[#EFEFEF] text-black"
                 : "max-w-[80%]")}>
                 {content.split("\n").map((line, index) => <div key={index}>{line}</div>)}
             </div>

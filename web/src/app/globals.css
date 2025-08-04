@@ -114,7 +114,6 @@
 
 @layer base {  
   * {
-    font-family: "Source Sans Pro";
     @apply border-border outline-ring/50;
   }
   body {

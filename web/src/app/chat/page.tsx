@@ -45,19 +45,19 @@ export default function Chat({ session }: { session: string }) {
                 <div className="flex-1 flex flex-col gap-4 justify-start overflow-y-auto">
                     {messages.map((props, index) => <Message key={index} {...props} />)}
                 </div>
-                <div className="m-8 pt-1 pl-0.5 pb-2 pr-2 bg-[#efefef] rounded-2xl min-h-35 flex flex-col">
-                    <Textarea ref={prompt} placeholder={placeholder} className="placeholder:opacity-50 pb-2 flex-1" />
+                <div className="m-8 px-4 py-3 bg-[#efefef] rounded-3xl min-h-35 flex flex-col">
+                    <Textarea ref={prompt} placeholder={placeholder} className="placeholder:text-[#BAB9B8] placeholder:font-medium pb-2 flex-1" />
                     <div className="flex justify-between">
                         <div className="flex gap-2 pl-1.5">
                             <button type="button" title="send" onClick={() => setCompleted(true)} className={cn(
-                                "text-[#604B40] px-3 py-1 rounded-2xl flex items-center gap-2",
+                                "text-[#604B40] px-3 py-1 rounded-3xl flex items-center gap-2",
                                 completed ? "bg-[#D2DDE4]" : "bg-white"
                             )}>
                                 <Image src="/icons/complete.svg" alt="" width={14} height={14} />
                                 Complete&nbsp;Set
                             </button>
                             <button type="button" title="send" onClick={() => setCompleted(false)} className={cn(
-                                "text-[#3D3935] px-3 py-1 rounded-2xl flex items-center gap-2",
+                                "text-[#3D3935] px-3 py-1 rounded-3xl flex items-center gap-2",
                                 completed ? "bg-white" : "bg-[#D2DDE4]"
                             )}>
                                 <Image src="/icons/option.svg" alt="" width={6} height={6} />
@@ -78,7 +78,7 @@ export default function Chat({ session }: { session: string }) {
                 <div className="flex-1 flex flex-col items-center py-6 gap-6">
                     {palettes.map((props, index) => <Palette key={index} {...props} />)}
                 </div>
-                <button type="button" className="bg-[#3d3935] text-white m-3 px-3 py-2 rounded-2xl">
+                <button type="button" className="bg-[#3d3935] text-white m-3 px-3 py-2 rounded-3xl">
                     confirm&nbsp;&amp;&nbsp;get!
                 </button>
             </aside>
