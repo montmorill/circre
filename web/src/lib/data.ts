@@ -1,7 +1,9 @@
 export const CIRCRES = [
   "coconut",
-  "eggshell",
+  "egg",
   "seashell",
   "seed",
   "ladybug",
 ] as const
+
+export const ALL_CIRCRES = [...CIRCRES, "blackbean"] as const

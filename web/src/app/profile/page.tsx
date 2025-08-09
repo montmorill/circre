@@ -3,14 +3,21 @@
 import { CirclePlus, LogOut } from "lucide-react";
 import Sidebar from "../sidebar";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CIRCRES } from "@/lib/data";
-import { Textarea } from "@/components/ui/textarea";
+import Textarea from "@/components/ui/textarea";
 import Portfolio from "./portfolio";
+import Entry from "@/components/ui/entry";
 
 export default function Profile() {
-    const name = "Dorothy多罗茜"
+    const detials = ["Location", "Nation", "Company", "Job", "Education", "Contact"];
     const [avatar, setAvatar] = useState<typeof CIRCRES[number]>("ladybug");
+    const usernameRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if (usernameRef.current) {
+            usernameRef.current.value = "Dorothy多罗茜";
+        }
+    }, [usernameRef])
 
     return (
         <div className="flex w-full h-screen">
@@ -36,9 +43,9 @@ export default function Profile() {
                     </div>
                     <div className="flex flex-col items-center mt-16">
                         <div className="bg-[#e3dbca] rounded-full p-4 aspect-square">
-                            <Image src={`/circre/${avatar}.svg`} alt="Profile" width={200} height={200} className="relative top-7" />
+                            <Image src={`/circres/${avatar}.svg`} alt="Profile" width={200} height={200} className="relative top-7" />
                         </div>
-                        <div className="w-48 text-center mt-4 text-[#3D3935] bg-white px-3 py-2 rounded-full">{name}</div>
+                        <Entry ref={usernameRef} className="w-48 text-center mt-4 text-[#3D3935] bg-white px-3 py-2 rounded-full" />
                         <CirclePlus className="float relative bottom-26 left-22 opacity-50" width={36} height={36} />
                     </div>
                     <div className="flex flex-col items-center gap-4 *:w-[70vw]">
@@ -46,12 +53,12 @@ export default function Profile() {
                             <div className="flex-1 h-full flex flex-col gap-4">
                                 <div className="ml-4 font-medium text-2xl text-[#3D3935]">&nbsp;</div>
                                 <div className="flex-1 bg-[#fffc] flex flex-col p-8 justify-between rounded-4xl text-lg">
-                                    <label>Location:<input type="text" /></label>
-                                    <label>Nation:<input type="text" /></label>
-                                    <label>Company:<input type="text" /></label>
-                                    <label>Job:<input type="text" /></label>
-                                    <label>Education<input type="text" /></label>
-                                    <label>Contact:<input type="text" /></label>
+                                    {detials.map((detail) => (
+                                        <label key={detail}>
+                                            <span>{detail}:</span>
+                                            <Entry className="ml-2" />
+                                        </label>
+                                    ))}
                                 </div>
                             </div>
                             <div className="flex-1 w-[calc(50%-2rem)] h-full flex flex-col gap-4">
@@ -61,7 +68,7 @@ export default function Profile() {
                                 <div className="bg-[#604B4080] flex justify-between p-6 pt-8 rounded-4xl">
                                     {CIRCRES.map((circre) =>
                                         <Image
-                                            src={`/circre/${circre}.svg`}
+                                            src={`/circres/${circre}.svg`}
                                             alt={circre} width={64} height={64}
                                             key={circre} className="cursor-pointer"
                                             onClick={() => setAvatar(circre)}

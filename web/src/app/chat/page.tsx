@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ChevronDown, CircleArrowUp, Star } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
+import Textarea from "@/components/ui/textarea";
 import { useRef, useState } from "react";
 import Message, { MessageProps } from "./message";
 import Palette, { PaletteProps } from "./palette";
@@ -23,12 +23,12 @@ export default function Chat({ session }: { session: string }) {
         { primary: "#D9D9D9", secondary: "#F0A451" },
     ]);
 
-    const prompt = useRef<HTMLTextAreaElement>(null);
+    const promptRef = useRef<HTMLTextAreaElement>(null);
     function sendMessage() {
-        if (prompt.current && prompt.current.value) {
-            const content = prompt.current.value;
+        if (promptRef.current && promptRef.current.value) {
+            const content = promptRef.current.value;
             setMessages([...messages, { role: "user", content }]);
-            prompt.current.value = "";
+            promptRef.current.value = "";
         }
     }
 
@@ -46,7 +46,7 @@ export default function Chat({ session }: { session: string }) {
                     {messages.map((props, index) => <Message key={index} {...props} />)}
                 </div>
                 <div className="m-8 px-4 py-3 bg-[#efefef] rounded-3xl min-h-35 flex flex-col">
-                    <Textarea ref={prompt} placeholder={placeholder} className="placeholder:text-[#BAB9B8] placeholder:font-medium pb-2 flex-1" />
+                    <Textarea ref={promptRef} placeholder={placeholder} className="placeholder:text-[#BAB9B8] placeholder:font-medium pb-2 flex-1" />
                     <div className="flex justify-between">
                         <div className="flex gap-2 pl-1.5">
                             <button type="button" title="send" onClick={() => setCompleted(true)} className={cn(
